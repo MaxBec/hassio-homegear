@@ -22,7 +22,7 @@ COPY start.sh /start.sh
 RUN chmod +x /start.sh
 ENTRYPOINT ["/bin/bash", "-c", "/start.sh"]
 
-EXPOSE 2001 2002 2003
+EXPOSE 2001 2002 2003 2004
 
 # Build arguments
 ARG BUILD_DATE
