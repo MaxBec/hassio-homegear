@@ -11,8 +11,7 @@ _term() {
 	exit 0
 }
 
-ulimit -r 100
-
+chmod -v -R 0777 /dev/serial/by-id/
 chown homegear:homegear /dev/tty*
 chown homegear:homegear /dev/serial/by-id/*
 

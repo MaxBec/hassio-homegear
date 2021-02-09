@@ -1,6 +1,6 @@
 {
 	"name": "homegear",
-	"version": "1.0.8",
+	"version": "1.0.9",
 	"slug": "homegear",
 	"description": "Homegear as a Hassio add-on",
 	"webui": "http://[HOST]:[PORT:2001]/admin",
