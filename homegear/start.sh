@@ -14,6 +14,7 @@ _term() {
 ulimit -r 100
 
 chown homegear:homegear /dev/tty*
+chown homegear:homegear /dev/serial/by-id/*
 
 if ! [ -d "/config/homegear" ]
 then
