@@ -53,6 +53,8 @@ USER_GID=${HOST_USER_GID:=$USER_GID}
 echo "--- ********************* ---"
 echo "--- USER MOD ---"
 echo "--- ********************* ---"
+ls -la /dev/
+ls -la /dev/serial/by-id/
 usermod -a -G dialout homegear
 usermod -a -G tty homegear
 
@@ -135,7 +137,7 @@ chown ${USER}:${USER} /var/run/homegear
 echo "--- ********************* ---"
 echo "--- HOMEGEAR START ---"
 echo "--- ********************* ---"
-/etc/homegear/homegear-start.sh
+/bin/su -c "/etc/homegear/homegear-start.sh" - root
 /usr/bin/homegear -u ${USER} -g ${USER} -p /var/run/homegear/homegear.pid &
 sleep 5
 /usr/bin/homegear-management -p /var/run/homegear/homegear-management.pid &
