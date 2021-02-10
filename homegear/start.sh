@@ -11,9 +11,6 @@ _term() {
 	exit 0
 }
 
-chmod -v -R 0777 /dev/serial/by-id/
-chown homegear:homegear /dev/tty*
-chown homegear:homegear /dev/serial/by-id/*
 
 if ! [ -d "/config/homegear" ]
 then
@@ -49,6 +46,8 @@ USER_GID=$(id -g $USER)
 USER_ID=${HOST_USER_ID:=$USER_ID}
 USER_GID=${HOST_USER_GID:=$USER_GID}
 
+usermod -a -G dialout ${USER}
+usermod -a -G tty ${USER}
 
 ln -nfs /config/homegear /etc/homegear
 ln -nfs /share/homegear /var/lib/homegear
