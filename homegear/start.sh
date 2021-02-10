@@ -1,4 +1,7 @@
 #/bin/bash
+echo "--- ********************* ---"
+echo "--- BEGIN OF START SCRIPT ---"
+echo "--- ********************* ---"
 
 _term() {
 	HOMEGEAR_PID=$(cat /var/run/homegear/homegear.pid)
@@ -46,6 +49,10 @@ USER_GID=$(id -g $USER)
 USER_ID=${HOST_USER_ID:=$USER_ID}
 USER_GID=${HOST_USER_GID:=$USER_GID}
 
+
+echo "--- ********************* ---"
+echo "--- USER MOD ---"
+echo "--- ********************* ---"
 usermod -a -G dialout homegear
 usermod -a -G tty homegear
 
@@ -124,6 +131,10 @@ ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 mkdir -p /var/run/homegear
 chown ${USER}:${USER} /var/run/homegear
 
+
+echo "--- ********************* ---"
+echo "--- HOMEGEAR START ---"
+echo "--- ********************* ---"
 /etc/homegear/homegear-start.sh
 /usr/bin/homegear -u ${USER} -g ${USER} -p /var/run/homegear/homegear.pid &
 sleep 5
